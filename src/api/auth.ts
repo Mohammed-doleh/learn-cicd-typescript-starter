@@ -1,5 +1,3 @@
-
-
 export function getAPIKey(headers: Headers): string | null {
   const authHeader = headers.get("Authorization");
   if (!authHeader) return null;
