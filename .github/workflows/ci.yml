@@ -18,6 +18,11 @@ jobs:
 
       - name: Run tests
         run: npm run test -- --coverage
+<<<<<<< HEAD
+=======
+      
+      
+>>>>>>> addtests
 
   style:
     name: Style
@@ -30,4 +35,11 @@ jobs:
         run: npm ci
 
       - name: Check formatting
+<<<<<<< HEAD
         run: npm run format:check
+=======
+        run: npm run format:check
+
+      - name: Lint
+        run: npm run lint -- --max-warnings=0
+>>>>>>> addtests
