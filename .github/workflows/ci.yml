@@ -18,8 +18,7 @@ jobs:
       - name: Run tests
         run: npm run test -- --coverage
       
-      - name: Lint
-        run: npm run lint -- --max-warnings=0
+      
 
   style:
     name: Style
@@ -35,4 +34,4 @@ jobs:
         run: npm run format:check
 
       - name: Lint
-        run: npm run lint
+        run: npm run lint -- --max-warnings=0
