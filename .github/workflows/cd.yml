@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      DATABASE_URL: ${{ secrets.DATABASE_URL }}
       TURSO_DB_URL: ${{ secrets.TURSO_DB_URL }}
       TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
 
@@ -39,6 +38,11 @@ jobs:
 
       - name: Build and push Docker image
         run: gcloud builds submit --tag us-central1-docker.pkg.dev/notely-492219/notely-ar-repo/notely:latest .
+
+      - name: Debug env
+        run: |
+          echo "TURSO_AUTH_TOKEN length: ${#TURSO_AUTH_TOKEN}"
+          echo "TURSO_DB_URL: $TURSO_DB_URL"
 
       - name: Run migrations
         run: npm run db:migrate
