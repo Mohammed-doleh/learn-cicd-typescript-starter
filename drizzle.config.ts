@@ -2,16 +2,12 @@ import type { Config } from "drizzle-kit";
 import dotenv from "dotenv";
 dotenv.config();
 
-const url = new URL(process.env.DATABASE_URL || "");
-const authToken = url.searchParams.get("authToken") || "";
-url.searchParams.delete("authToken");
-
 export default {
   out: "./src/db/migrations",
   schema: "./src/db/schema.ts",
   dialect: "turso",
   dbCredentials: {
-    url: url.toString(),
-    authToken: authToken,
+    url: process.env.TURSO_DB_URL || "",
+    authToken: process.env.TURSO_AUTH_TOKEN || "",
   },
 } satisfies Config;
